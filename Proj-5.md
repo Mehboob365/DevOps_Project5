@@ -55,9 +55,10 @@ sudo mysql
 on the Server, we will create a user 
 
 1. CREATE USER 'remote_user'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY '<password>'
-
 2. CREATE DATABASE test_db;
-
 3. GRANT ALL on test_db.* TO 'remote_user'@'%' WITH GRANT OPTION;
-![image](https://user-images.githubusercontent.com/67065306/132711489-09bc1f60-dbe3-4a2f-b790-982f0ae8363f.png)
+4. FLUSH PRVILEGES
+5. EXIT
+ ![image](https://user-images.githubusercontent.com/67065306/132711969-01c25feb-288f-4156-9938-e21949a3a7f6.png)
+
 

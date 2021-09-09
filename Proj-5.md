@@ -9,7 +9,55 @@ In their communication, each machine has its own role: the machine sending reque
 
 ![image](https://user-images.githubusercontent.com/67065306/132592379-5afd4dee-2985-4266-b34c-ccaae10720fd.png)
 
+**IMPLEMENT A CLIENT SERVER ARCHITECTURE USING MYSQL DATABASE MANAGEMENT SYSTEM (DBMS).**
 
+TASK1 – Implement a Client Server Architecture using MySQL Database Management System (DBMS).
 
+To demonstrate a basic client-server using MySQL Relational Database Management System (RDBMS) actioned as below;
 
+Created and configured two Linux-based virtual servers (EC2 instances in AWS).
+
+Server A name - `mysql server`
+Server B name - `mysql client`
+
+![image](https://user-images.githubusercontent.com/67065306/132704393-938d9572-d297-4873-987c-4c33e0051083.png)
+
+Task2. On mysql server Linux Server install MySQL Server software.
+ 1. sudo apt update - y
+ 2. sudo apt install mysql-server -y
+ 3. sudo systemctl enable mysql
+ 
+ ![image](https://user-images.githubusercontent.com/67065306/132705735-0281b2e5-6c93-440f-87fc-c626c54b04d6.png)
+
+Task3. On mysql client Linux Server install MySQL Client software.
+  1. sudo apt update - y
+  2. sudo apt install mysql-client -y
+  
+![image](https://user-images.githubusercontent.com/67065306/132706597-9e615247-2c3b-4a0c-a8e4-834caad34111.png)
+
+Task3. By default, both of our EC2 virtual servers are located in the same local virtual network, so they can communicate to each other using local IP addresses. 
+We will use mysql server's local IP address to connect **from** mysql client. 
+MySQL server uses TCP port 3306 by default, so will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql server’ Security Groups. 
+For extra security, do not allow all IP addresses to reach your ‘mysql server’ – allow access only to the specific local IP address of your ‘mysql client’.
+
+![image](https://user-images.githubusercontent.com/67065306/132707959-64a02956-126a-4e0b-a777-88c0823e4dc4.png)
+
+We still need a database on the server and a user on the client.
+
+sudo mysql_secure_installation
+
+![image](https://user-images.githubusercontent.com/67065306/132709452-3678cf6b-7b3b-4c38-8c21-a8eea6d95edd.png)
+
+On the server run
+sudo mysql
+![image](https://user-images.githubusercontent.com/67065306/132710035-c90f3050-b393-4648-8061-b1f2481996e7.png)
+
+on the Server, we will create a user 
+
+1. CREATE USER 'remote_user'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY '<password>'
+
+2. CREATE DATABASE test_db;
+
+3. GRANT ALL on test_db.* TO 'remote_user'@'%' WITH GRANT OPTION;
+![image](https://user-images.githubusercontent.com/67065306/132711489-09bc1f60-dbe3-4a2f-b790-982f0ae8363f.png)
 

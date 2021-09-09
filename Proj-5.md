@@ -74,6 +74,17 @@ on the Server, we will create a user
  Task6. On mysql client Linux Server connect remotely to mysql server Database Engine without using SSH. 
          We will use the mysql utility to perform this action.
  
+ On mysql client run
+ 
+ sudo mysql - u remote_user -h 'server public ip address' -p
+ 
+ ![image](https://user-images.githubusercontent.com/67065306/132715900-198a984d-5810-4cd1-934b-4a496d5a7290.png)
+
+ mysql) show databases
+ 
+ ![image](https://user-images.githubusercontent.com/67065306/132716644-76b08fa2-70e3-48cb-9a68-d3ae114315bb.png)
+
+ 
  
  
  

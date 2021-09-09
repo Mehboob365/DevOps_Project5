@@ -61,4 +61,20 @@ on the Server, we will create a user
 5. EXIT
  ![image](https://user-images.githubusercontent.com/67065306/132711969-01c25feb-288f-4156-9938-e21949a3a7f6.png)
 
+ Task5. We need to configure MySQL server to allow connections from remote hosts.
+ 
+ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf    Replace bind-address with 0.0.0.0
+ 
+ ![image](https://user-images.githubusercontent.com/67065306/132714756-cbfb6eb2-2b8c-4098-a878-4e7ce911eeb7.png)
+
+ on Server run
+ 
+ sudo systemctl restart mysql
+ 
+ Task6. On mysql client Linux Server connect remotely to mysql server Database Engine without using SSH. 
+         We will use the mysql utility to perform this action.
+ 
+ 
+ 
+ 
 
